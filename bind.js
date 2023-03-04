@@ -4,7 +4,8 @@ Function.prototype.myBind = function (context, ...args) {
 		let _fn = Symbol();
 		context[_fn] = fn;
 		const finalArgs = [...args, ...args2];
-		context[_fn](...finalArgs);
+		const result = context[_fn](...finalArgs);
 		delete context[_fn];
+		return result;
 	};
 };
